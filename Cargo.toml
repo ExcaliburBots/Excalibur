@@ -1,0 +1,40 @@
+[package]
+name = "excalibur"
+version = "0.1.0"
+authors = ["Altagos <altagos@posteo.de>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tokio = { version = "0.2", features = ["macros"] }
+env_logger = "0.6"
+kankyo = "0.2"
+log = "0.4"
+pretty_env_logger = "0.4.0"
+
+[dependencies.serenity]
+default-features = false
+git = "https://github.com/acdenisSK/serenity"
+branch = "await_next"
+features = [
+    "builder",
+    "client",
+    "cache",
+    "framework",
+    "gateway",
+    "http",
+    "model",
+    "standard_framework",
+    "utils",
+    "rustls_backend",
+    "voice"
+]
+version = "0.8"
+
+[dependencies.sqlx]
+#version = "0.3"
+git = "https://github.com/launchbadge/sqlx/"
+branch = "master"
+default-features = false
+features = ["runtime-tokio", "macros", "postgres", "uuid", "offline"]

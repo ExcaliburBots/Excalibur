@@ -1,0 +1,29 @@
+{
+  "db": "PostgreSQL",
+  "2e966819782f876e43a6be7451854946fc6f2eb54f875ba8d5c6cf26ada4101c": {
+    "query": "UPDATE guild_config SET prefix = $2 WHERE guild_id = $1",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Int8",
+          "Text"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "4f563428d0794fd7396767ab605e42fe65ec1f49c0520f07990ae444da19d109": {
+    "query": "INSERT INTO guild_config (guild_id, prefix) VALUES($1, $2) ON CONFLICT DO NOTHING",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Int8",
+          "Text"
+        ]
+      },
+      "nullable": []
+    }
+  }
+}

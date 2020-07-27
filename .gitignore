@@ -1,0 +1,5 @@
+/target
+release/excalibur.exe
+/run
+excalibur.exe
+.env
