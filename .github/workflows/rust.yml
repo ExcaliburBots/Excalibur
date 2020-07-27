@@ -8,6 +8,9 @@ on:
 
 env:
   CARGO_TERM_COLOR: always
+  RUST_LOG: info
+  DATABASE_URL: postgresql://[user[:password]@][netloc][:port][/dbname][?param1=value1&...]
+  DSICORD_TOKEN: bot_token
 
 jobs:
   build:
