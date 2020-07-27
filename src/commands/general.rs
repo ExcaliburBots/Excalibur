@@ -1,11 +1,8 @@
 use serenity::{
-    framework::standard::{
-        CommandResult, Args,
-        macros::command,
-    },
+    framework::standard::{macros::command, Args, CommandResult},
     model::channel::Message,
     prelude::*,
-    utils::{content_safe, ContentSafeOptions}
+    utils::{content_safe, ContentSafeOptions},
 };
 
 use super::checks::*;
@@ -45,7 +42,11 @@ async fn say(ctx: &Context, msg: &Message, args: Args) -> CommandResult {
 
 #[command]
 async fn about(ctx: &Context, msg: &Message) -> CommandResult {
-    if let Err(why) = msg.channel_id.say(&ctx.http, "This is a small test-bot! : )").await {
+    if let Err(why) = msg
+        .channel_id
+        .say(&ctx.http, "This is a small test-bot! : )")
+        .await
+    {
         println!("Error sending message: {:?}", why);
     }
 

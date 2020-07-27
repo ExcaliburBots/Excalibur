@@ -25,5 +25,51 @@
       },
       "nullable": []
     }
+  },
+  "5acdb9bbbf242359f64d3fc4af827686756561a75056449d60851b5d8a4fc5c3": {
+    "query": "SELECT * FROM guild_config WHERE guild_id = $1",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "guild_id",
+          "type_info": "Int8"
+        },
+        {
+          "ordinal": 1,
+          "name": "prefix",
+          "type_info": "Text"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Int8"
+        ]
+      },
+      "nullable": [
+        false,
+        false
+      ]
+    }
+  },
+  "a5530e959746c962a5930b2620ddd038f19a4a24aeffe68b693df323b51ebafb": {
+    "query": "SELECT prefix FROM guild_config WHERE guild_id = $1",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "prefix",
+          "type_info": "Text"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Int8"
+        ]
+      },
+      "nullable": [
+        false
+      ]
+    }
   }
 }

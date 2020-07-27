@@ -6,7 +6,7 @@ use serenity::{
     async_trait,
     framework::standard::{
         help_commands,
-        macros::{group, help},
+        macros::{group, help, hook},
         Args, CommandGroup, CommandResult, HelpOptions, StandardFramework,
     },
     http::Http,
@@ -18,9 +18,10 @@ extern crate pretty_env_logger;
 extern crate log;
 
 mod commands;
-use commands::{config::*, general::*, moderation::*, owner::*, voice::*};
+use commands::{checks::*, config::*, general::*, moderation::*, owner::*, voice::*};
 
 mod managers;
+use crate::models::guild_config::GuildConfig;
 use managers::*;
 use std::time::Duration;
 use tokio::time::delay_for;
@@ -67,6 +68,7 @@ struct Moderation;
 
 #[group]
 #[only_in(guilds)]
+#[checks(Config)]
 #[commands(deafen, join, leave, mute, play, undeafen, unmute)]
 struct Voice;
 
@@ -101,6 +103,22 @@ async fn my_help(
     Ok(())
 }
 
+// Hooks
+
+#[hook]
+async fn dynamic_prefix(ctx: &Context, msg: &Message) -> Option<String> {
+    let data = ctx.data.read().await;
+    let pool = data.get::<Database>().unwrap();
+    let default_prefix = data.get::<DefaultPrefix>().unwrap();
+    let guild_id = msg.guild(&ctx.cache).await.unwrap().id;
+
+    let prefix = GuildConfig::get_prefix(guild_id, default_prefix.to_string(), pool)
+        .await
+        .unwrap();
+
+    Some(prefix)
+}
+
 // Main
 
 #[tokio::main]
@@ -132,7 +150,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .configure(|c| {
             c.with_whitespace(true)
                 .on_mention(Some(bot_id))
-                .prefix("!")
+                .dynamic_prefix(dynamic_prefix)
                 .delimiters(vec![", ", ","])
                 .owners(owners)
         })
@@ -152,6 +170,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     {
         let mut data = client.data.write().await;
         data.insert::<Database>(pool.clone());
+        data.insert::<DefaultPrefix>(String::from("!"));
         data.insert::<ShardManagerContainer>(Arc::clone(&client.shard_manager));
         data.insert::<VoiceManager>(Arc::clone(&client.voice_manager));
     }
@@ -160,7 +179,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     tokio::spawn(async move {
         loop {
-            delay_for(Duration::from_secs(30)).await;
+            delay_for(Duration::from_secs(120)).await;
 
             let lock = manager.lock().await;
             let shard_runners = lock.runners.lock().await;

@@ -1,3 +1,4 @@
+use serenity::model::id::GuildId;
 use sqlx::PgPool;
 
 #[derive(Debug, sqlx::FromRow)]
@@ -66,5 +67,25 @@ impl GuildConfig {
         }
 
         Ok(())
+    }
+
+    pub async fn get_prefix(
+        guild_id: GuildId,
+        default_prefix: String,
+        pool: &PgPool,
+    ) -> Result<String, Box<dyn std::error::Error + Send + Sync>> {
+        let mut cur_prefix = default_prefix;
+        let guild_data = sqlx::query!(
+            "SELECT prefix FROM guild_config WHERE guild_id = $1",
+            guild_id.0 as i64
+        )
+        .fetch_optional(pool)
+        .await?;
+
+        if let Some(prefix) = guild_data {
+            cur_prefix = prefix.prefix;
+        }
+
+        Ok(cur_prefix)
     }
 }

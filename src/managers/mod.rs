@@ -1,9 +1,9 @@
-use serenity::prelude::TypeMapKey;
-use std::sync::Arc;
-use tokio::sync::Mutex;
 use serenity::client::bridge::gateway::ShardManager;
 use serenity::client::bridge::voice::ClientVoiceManager;
+use serenity::prelude::TypeMapKey;
 use sqlx::PgPool;
+use std::sync::Arc;
+use tokio::sync::Mutex;
 
 pub(crate) struct ShardManagerContainer;
 
@@ -21,4 +21,10 @@ pub(crate) struct Database;
 
 impl TypeMapKey for Database {
     type Value = PgPool;
+}
+
+pub(crate) struct DefaultPrefix;
+
+impl TypeMapKey for DefaultPrefix {
+    type Value = String;
 }
