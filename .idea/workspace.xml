@@ -21,7 +21,9 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a7d1561-4560-41e6-8d47-dfe4a8a0a548" name="Default Changelist" comment="" />
+    <list default="true" id="0a7d1561-4560-41e6-8d47-dfe4a8a0a548" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,7 +60,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
-    <property name="settings.editor.selected.configurable" value="language.rust.cargo" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -70,11 +72,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Run excalibur" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="channel" value="DEFAULT" />
       <option name="command" value="run --package excalibur --bin excalibur" />
@@ -87,15 +84,8 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Cargo Command.Run excalibur" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="RustProjectSettings">
-    <option name="externalLinter" value="Clippy" />
-    <option name="runExternalLinterOnTheFly" value="true" />
     <option name="runRustfmtOnSave" value="true" />
     <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
     <option name="version" value="2" />
@@ -118,6 +108,9 @@
       <workItem from="1595759408885" duration="2571000" />
       <workItem from="1595762067386" duration="5436000" />
       <workItem from="1595834279921" duration="13118000" />
+      <workItem from="1595853603352" duration="376000" />
+      <workItem from="1595854022437" duration="48000" />
+      <workItem from="1595854085942" duration="1054000" />
     </task>
     <servers />
   </component>
@@ -137,6 +130,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="552" y="221" key="#Plugins" timestamp="1595854043508">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="552" y="221" key="#Plugins/1920.116.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1595854043508" />
     <state x="347" y="421" key="#SQL_Dialects" timestamp="1595844083962">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
@@ -149,6 +146,10 @@
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="690" y="327" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.116.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1595847494413" />
+    <state x="735" y="426" key="#com.intellij.tools.ToolEditorDialog" timestamp="1595853930174">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="735" y="426" key="#com.intellij.tools.ToolEditorDialog/1920.116.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1595853930174" />
     <state x="740" y="335" key="FileChooserDialogImpl" timestamp="1595762448852">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
@@ -169,10 +170,10 @@
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state width="1877" height="566" key="GridCell.Tab.0.right/1920.116.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1595762013089" />
-    <state x="468" y="241" key="SettingsEditor" timestamp="1595847250095">
+    <state x="468" y="241" width="1053" height="710" key="SettingsEditor" timestamp="1595854681417">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="468" y="241" key="SettingsEditor/1920.116.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1595847250095" />
+    <state x="468" y="241" width="1053" height="710" key="SettingsEditor/1920.116.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1595854681417" />
     <state x="304" y="98" width="1558" height="1147" key="dock-window-1" timestamp="1595683648764">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
