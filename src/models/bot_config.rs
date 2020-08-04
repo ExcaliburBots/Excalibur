@@ -93,8 +93,10 @@ impl DatabaseConfig {
         if let Some(url) = &self.database_url {
             return String::from(url);
         }
+
         let default_port: u16 = 5432;
         let mut url: (&str, &str, &str, &u16, &str) = ("", "", "localhost", &default_port, "");
+
         if let Some(username) = &self.username {
             url.0 = username;
         }

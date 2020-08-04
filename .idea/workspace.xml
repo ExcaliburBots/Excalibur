@@ -22,18 +22,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a7d1561-4560-41e6-8d47-dfe4a8a0a548" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/example.config.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/bot_config.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/make_release.bat" beforeDir="false" afterPath="$PROJECT_DIR$/make_release.bat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commands/moderation.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/moderation.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/managers/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/mod.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/mod.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/bot_config.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/bot_config.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,11 +80,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Run excalibur" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="channel" value="DEFAULT" />
       <option name="command" value="run --package excalibur --bin excalibur" />
@@ -146,7 +134,9 @@
       <workItem from="1596530117079" duration="204000" />
       <workItem from="1596530412457" duration="246000" />
       <workItem from="1596530672019" duration="1442000" />
-      <workItem from="1596544022026" duration="9125000" />
+      <workItem from="1596544022026" duration="9657000" />
+      <workItem from="1596557485424" duration="853000" />
+      <workItem from="1596559351147" duration="776000" />
     </task>
     <task id="LOCAL-00001" summary="intelij">
       <created>1595855195619</created>
@@ -162,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595862910733</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="moved configuration of the bot to a config.toml file">
+      <created>1596557015181</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1596557015181</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,7 +180,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="intelij" />
     <MESSAGE value="Added feature:&#10;- Custom prefixes&#10;- New check: you can now say that a command can only be used if the is a config" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added feature:&#10;- Custom prefixes&#10;- New check: you can now say that a command can only be used if the is a config" />
+    <MESSAGE value="moved configuration of the bot to a config.toml file" />
+    <option name="LAST_COMMIT_MESSAGE" value="moved configuration of the bot to a config.toml file" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="221" key="#Plugins" timestamp="1595854043508">
@@ -248,9 +246,10 @@
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="640" y="185" key="StringManipulation.SortTypeDialog/0.0.1920.1160/1920.114.1920.1040@0.0.1920.1160" timestamp="1596544522889" />
-    <state x="552" y="313" key="Vcs.Push.Dialog.v2" timestamp="1595862921903">
+    <state x="552" y="313" key="Vcs.Push.Dialog.v2" timestamp="1596557025418">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
+    <state x="552" y="313" key="Vcs.Push.Dialog.v2/0.0.1920.1160/1920.114.1920.1040@0.0.1920.1160" timestamp="1596557025418" />
     <state x="552" y="313" key="Vcs.Push.Dialog.v2/1920.116.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1595862921903" />
     <state x="304" y="98" width="1558" height="1147" key="dock-window-1" timestamp="1595683648764">
       <screen x="0" y="0" width="1920" height="1160" />

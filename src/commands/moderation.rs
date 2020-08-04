@@ -49,10 +49,16 @@ async fn slow_mode(ctx: &Context, msg: &Message, mut args: Args) -> CommandResul
 #[required_permissions("BAN_MEMBERS")]
 async fn ban(ctx: &Context, msg: &Message, args: Args) -> CommandResult {
     let guild = msg.guild(&ctx.cache).await.unwrap();
-    let user = args.parse::<UserId>()?;
-    let dmd = args.parse::<u8>()?;
+    let user = args.parse::<UserId>().unwrap();
 
-    if let Err(why) = guild.ban(&ctx.http, &user, dmd).await {
+    if user.0 == msg.author.id.0 {
+        if let Err(why) = msg.reply(&ctx.http, "you cannot ban yourself.").await {
+            println!("Error sending message: {:?}", why);
+        }
+        return Ok(());
+    }
+
+    if let Err(why) = guild.ban(&ctx.http, &user, 0).await {
         error!("Could not ban user from guild: {}", why);
     } else {
         msg.reply(
@@ -63,8 +69,7 @@ async fn ban(ctx: &Context, msg: &Message, args: Args) -> CommandResult {
                 msg.author.mention()
             ),
         )
-        .await
-        .unwrap();
+        .await?;
     }
 
     Ok(())
