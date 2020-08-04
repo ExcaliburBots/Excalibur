@@ -1,4 +1,4 @@
-use std::{collections::HashSet, env, sync::Arc};
+use std::{collections::HashSet, fs, sync::Arc};
 
 extern crate serenity;
 use serenity::prelude::*;
@@ -9,7 +9,6 @@ use serenity::{
         macros::{group, help, hook},
         Args, CommandGroup, CommandResult, HelpOptions, StandardFramework,
     },
-    http::Http,
     model::{channel::Message, event::ResumedEvent, gateway::Ready, id::UserId},
 };
 
@@ -63,7 +62,7 @@ struct General;
 
 #[group]
 #[only_in(guilds)]
-#[commands(slow_mode)]
+#[commands(slow_mode, ban)]
 struct Moderation;
 
 #[group]
@@ -126,25 +125,32 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     kankyo::load().expect("Failed to load .env file");
     pretty_env_logger::init();
 
-    let token = env::var("DISCORD_TOKEN").expect("Expected a token in the environment");
-    let http = Http::new_with_token(&token);
+    let config_file = fs::read_to_string("config.toml").unwrap();
+    let bot_config: models::bot_config::Config = toml::from_str(&config_file).unwrap();
 
-    let (owners, bot_id) = match http.get_current_application_info().await {
-        Ok(info) => {
-            let mut owners = HashSet::new();
+    let owners = bot_config.get_owners();
+    let bot_id = bot_config.bot_id();
+    let token = bot_config.bot_token();
 
-            for team in info.team {
-                for team_member in team.members {
-                    owners.insert(team_member.user.id);
-                }
-            }
+    // let token = env::var("DISCORD_TOKEN").expect("Expected a token in the environment");
+    // let http = Http::new_with_token(&token);
 
-            (owners, info.id)
-        }
-        Err(why) => panic!("Could not access application info: {:?}", why),
-    };
+    // let (owners, bot_id) = match http.get_current_application_info().await {
+    //     Ok(info) => {
+    //         let mut owners = HashSet::new();
+    //
+    //         for team in info.team {
+    //             for team_member in team.members {
+    //                 owners.insert(team_member.user.id);
+    //             }
+    //         }
+    //
+    //         (owners, info.id)
+    //     }
+    //     Err(why) => panic!("Could not access application info: {:?}", why),
+    // };
 
-    let pool = utils::obtain_pool().await?;
+    let pool = utils::obtain_pool(&*bot_config.database.get_database_url()).await?;
 
     let framework = StandardFramework::new()
         .configure(|c| {
@@ -170,7 +176,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     {
         let mut data = client.data.write().await;
         data.insert::<Database>(pool.clone());
-        data.insert::<DefaultPrefix>(String::from("!"));
+        data.insert::<DefaultPrefix>(bot_config.bot_default_prefix());
+        data.insert::<BotConfig>(bot_config);
         data.insert::<ShardManagerContainer>(Arc::clone(&client.shard_manager));
         data.insert::<VoiceManager>(Arc::clone(&client.voice_manager));
     }
@@ -196,10 +203,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     if let Err(why) = client.start_shards(2).await {
         error!("Client error: {:?}", why);
     }
-
-    // if let Err(why) = client.start().await {
-    //     error!("Client error: {:?}", why);
-    // }
 
     Ok(())
 }

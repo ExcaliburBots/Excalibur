@@ -1,4 +1,5 @@
 use log::error;
+use serenity::model::id::UserId;
 use serenity::{
     framework::standard::{macros::command, Args, CommandResult},
     model::channel::{Channel, Message},
@@ -38,6 +39,32 @@ async fn slow_mode(ctx: &Context, msg: &Message, mut args: Args) -> CommandResul
 
     if let Err(why) = msg.channel_id.say(&ctx.http, say_content).await {
         println!("Error sending message: {:?}", why);
+    }
+
+    Ok(())
+}
+
+#[command]
+#[only_in(guilds)]
+#[required_permissions("BAN_MEMBERS")]
+async fn ban(ctx: &Context, msg: &Message, args: Args) -> CommandResult {
+    let guild = msg.guild(&ctx.cache).await.unwrap();
+    let user = args.parse::<UserId>()?;
+    let dmd = args.parse::<u8>()?;
+
+    if let Err(why) = guild.ban(&ctx.http, &user, dmd).await {
+        error!("Could not ban user from guild: {}", why);
+    } else {
+        msg.reply(
+            &ctx.http,
+            format!(
+                "user {} was banned from this guild by {}",
+                &user.mention(),
+                msg.author.mention()
+            ),
+        )
+        .await
+        .unwrap();
     }
 
     Ok(())

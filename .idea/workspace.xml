@@ -22,18 +22,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a7d1561-4560-41e6-8d47-dfe4a8a0a548" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/example.config.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/bot_config.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/checks.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/checks.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/config.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/config.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/general.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/general.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commands/moderation.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/moderation.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/owner.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/owner.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/voice.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/voice.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/managers/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/mod.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/guild_config.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/guild_config.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/mod.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +53,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="2" />
+  </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="9vm42l19" />
   </component>
@@ -67,6 +70,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="true" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -83,6 +87,11 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Run excalibur" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="channel" value="DEFAULT" />
       <option name="command" value="run --package excalibur --bin excalibur" />
@@ -95,6 +104,11 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Cargo Command.Run excalibur" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="RustProjectSettings">
     <option name="runRustfmtOnSave" value="true" />
@@ -125,7 +139,14 @@
       <workItem from="1595854085942" duration="1242000" />
       <workItem from="1595855662746" duration="127000" />
       <workItem from="1595855822507" duration="332000" />
-      <workItem from="1595856186137" duration="6282000" />
+      <workItem from="1595856186137" duration="6738000" />
+      <workItem from="1595927773256" duration="55000" />
+      <workItem from="1595945021251" duration="19000" />
+      <workItem from="1595945061032" duration="1122000" />
+      <workItem from="1596530117079" duration="204000" />
+      <workItem from="1596530412457" duration="246000" />
+      <workItem from="1596530672019" duration="1442000" />
+      <workItem from="1596544022026" duration="9125000" />
     </task>
     <task id="LOCAL-00001" summary="intelij">
       <created>1595855195619</created>
@@ -134,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595855195619</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added feature:&#10;- Custom prefixes&#10;- New check: you can now say that a command can only be used if the is a config">
+      <created>1595862910733</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1595862910733</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,7 +182,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="intelij" />
-    <option name="LAST_COMMIT_MESSAGE" value="intelij" />
+    <MESSAGE value="Added feature:&#10;- Custom prefixes&#10;- New check: you can now say that a command can only be used if the is a config" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added feature:&#10;- Custom prefixes&#10;- New check: you can now say that a command can only be used if the is a config" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="221" key="#Plugins" timestamp="1595854043508">
@@ -181,38 +210,48 @@
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="735" y="426" key="#com.intellij.tools.ToolEditorDialog/1920.116.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1595853930174" />
-    <state x="740" y="335" key="FileChooserDialogImpl" timestamp="1595762448852">
+    <state x="740" y="335" key="FileChooserDialogImpl" timestamp="1596530801922">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="740" y="335" key="FileChooserDialogImpl/1920.116.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1595762448852" />
-    <state width="1877" height="566" key="GridCell.Tab.0.bottom" timestamp="1595856272276">
+    <state x="740" y="335" key="FileChooserDialogImpl/0.0.1920.1160/1920.114.1920.1040@0.0.1920.1160" timestamp="1596530801922" />
+    <state x="740" y="335" key="FileChooserDialogImpl/1920.116.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1595927823683" />
+    <state width="1877" height="566" key="GridCell.Tab.0.bottom" timestamp="1595946198097">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state width="1877" height="566" key="GridCell.Tab.0.bottom/1920.116.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1595856272276" />
-    <state width="1877" height="566" key="GridCell.Tab.0.center" timestamp="1595856272276">
+    <state width="1877" height="566" key="GridCell.Tab.0.bottom/1920.116.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1595946198097" />
+    <state width="1877" height="566" key="GridCell.Tab.0.center" timestamp="1595946198097">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state width="1877" height="566" key="GridCell.Tab.0.center/1920.116.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1595856272276" />
-    <state width="1877" height="566" key="GridCell.Tab.0.left" timestamp="1595856272276">
+    <state width="1877" height="566" key="GridCell.Tab.0.center/1920.116.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1595946198097" />
+    <state width="1877" height="566" key="GridCell.Tab.0.left" timestamp="1595946198097">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state width="1877" height="566" key="GridCell.Tab.0.left/1920.116.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1595856272276" />
-    <state width="1877" height="566" key="GridCell.Tab.0.right" timestamp="1595856272276">
+    <state width="1877" height="566" key="GridCell.Tab.0.left/1920.116.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1595946198097" />
+    <state width="1877" height="566" key="GridCell.Tab.0.right" timestamp="1595946198097">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state width="1877" height="566" key="GridCell.Tab.0.right/1920.116.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1595856272276" />
+    <state width="1877" height="566" key="GridCell.Tab.0.right/1920.116.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1595946198097" />
     <state x="524" y="334" key="IDE.errors.dialog" timestamp="1595855328052">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="524" y="334" key="IDE.errors.dialog/1920.116.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1595855328052" />
-    <state x="468" y="241" width="1053" height="710" key="SettingsEditor" timestamp="1595855338764">
+    <state x="468" y="241" width="1053" height="710" key="SettingsEditor" timestamp="1596531873396">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
+    <state x="468" y="241" key="SettingsEditor/0.0.1920.1160/1920.114.1920.1040@0.0.1920.1160" timestamp="1596531873396" />
     <state x="468" y="241" width="1053" height="710" key="SettingsEditor/1920.116.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1595855338764" />
-    <state x="552" y="313" key="Vcs.Push.Dialog.v2" timestamp="1595855204116">
+    <state x="590" y="185" key="StringManipulation.SortTokensDialog" timestamp="1596544505463">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="552" y="313" key="Vcs.Push.Dialog.v2/1920.116.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1595855204116" />
+    <state x="590" y="185" key="StringManipulation.SortTokensDialog/0.0.1920.1160/1920.114.1920.1040@0.0.1920.1160" timestamp="1596544505463" />
+    <state x="640" y="185" key="StringManipulation.SortTypeDialog" timestamp="1596544522889">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="640" y="185" key="StringManipulation.SortTypeDialog/0.0.1920.1160/1920.114.1920.1040@0.0.1920.1160" timestamp="1596544522889" />
+    <state x="552" y="313" key="Vcs.Push.Dialog.v2" timestamp="1595862921903">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="552" y="313" key="Vcs.Push.Dialog.v2/1920.116.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1595862921903" />
     <state x="304" y="98" width="1558" height="1147" key="dock-window-1" timestamp="1595683648764">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>

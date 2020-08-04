@@ -1,0 +1,18 @@
+[bot]
+token = "replace with your bot token"
+id = 7 # replace with the id of your bot
+default_prefix = "!" # default prefix for the bot
+
+[database]
+database_url = "postgresql://[user[:password]@][netloc][:port][/dbname][?param1=value1&...]" # a url in this schema
+# or
+username = "your user name"
+password = "password for this user" # optional
+address = "the address of the the database server" # optional - defaults to localhost
+port = 5432 # optional - defaults to 5432
+name = "the fancy name of your database"
+
+# there can be multiple owners of a bot you only have to repeat this section for each owner, this section is optional
+[[owner]]
+id = 13 # replace with discord id
+name = "username#0000" # optional - the name (discord nichname) of the owner

@@ -1,3 +1,4 @@
+use crate::models::bot_config::Config;
 use serenity::client::bridge::gateway::ShardManager;
 use serenity::client::bridge::voice::ClientVoiceManager;
 use serenity::prelude::TypeMapKey;
@@ -27,4 +28,10 @@ pub(crate) struct DefaultPrefix;
 
 impl TypeMapKey for DefaultPrefix {
     type Value = String;
+}
+
+pub(crate) struct BotConfig;
+
+impl TypeMapKey for BotConfig {
+    type Value = Config;
 }
