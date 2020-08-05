@@ -1,36 +1,45 @@
-use crate::models::bot_config::Config;
+use std::collections::HashMap;
+use std::sync::Arc;
+
 use serenity::client::bridge::gateway::ShardManager;
 use serenity::client::bridge::voice::ClientVoiceManager;
 use serenity::prelude::TypeMapKey;
 use sqlx::PgPool;
-use std::sync::Arc;
 use tokio::sync::Mutex;
 
-pub(crate) struct ShardManagerContainer;
+use crate::models::bot_config::Config;
+
+pub struct ShardManagerContainer;
 
 impl TypeMapKey for ShardManagerContainer {
     type Value = Arc<Mutex<ShardManager>>;
 }
 
-pub(crate) struct VoiceManager;
+pub struct VoiceManager;
 
 impl TypeMapKey for VoiceManager {
     type Value = Arc<Mutex<ClientVoiceManager>>;
 }
 
-pub(crate) struct Database;
+pub struct Database;
 
 impl TypeMapKey for Database {
     type Value = PgPool;
 }
 
-pub(crate) struct DefaultPrefix;
+pub struct DefaultPrefix;
 
 impl TypeMapKey for DefaultPrefix {
     type Value = String;
 }
 
-pub(crate) struct BotConfig;
+pub struct GuildPrefix;
+
+impl TypeMapKey for GuildPrefix {
+    type Value = HashMap<u64, String>;
+}
+
+pub struct BotConfig;
 
 impl TypeMapKey for BotConfig {
     type Value = Config;

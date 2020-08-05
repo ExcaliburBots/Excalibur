@@ -7,7 +7,13 @@
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:main" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated />
@@ -22,11 +28,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a7d1561-4560-41e6-8d47-dfe4a8a0a548" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/make_release.bat" beforeDir="false" afterPath="$PROJECT_DIR$/make_release.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/moderation.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/moderation.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/bot_config.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/bot_config.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/config.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/config.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/managers/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/mod.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +51,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="2" />
@@ -92,6 +99,11 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Cargo Command.Run excalibur" />
@@ -137,6 +149,7 @@
       <workItem from="1596544022026" duration="9657000" />
       <workItem from="1596557485424" duration="853000" />
       <workItem from="1596559351147" duration="776000" />
+      <workItem from="1596621220633" duration="2183000" />
     </task>
     <task id="LOCAL-00001" summary="intelij">
       <created>1595855195619</created>
@@ -170,7 +183,20 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="BEK_SORT_TYPE" value="1" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -233,23 +259,23 @@
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="524" y="334" key="IDE.errors.dialog/1920.116.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1595855328052" />
-    <state x="468" y="241" width="1053" height="710" key="SettingsEditor" timestamp="1596531873396">
+    <state x="468" y="241" width="1053" height="710" key="SettingsEditor" timestamp="1596621196113">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="468" y="241" key="SettingsEditor/0.0.1920.1160/1920.114.1920.1040@0.0.1920.1160" timestamp="1596531873396" />
+    <state x="468" y="241" key="SettingsEditor/0.0.1920.1160/1920.114.1920.1040@0.0.1920.1160" timestamp="1596621196113" />
     <state x="468" y="241" width="1053" height="710" key="SettingsEditor/1920.116.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1595855338764" />
     <state x="590" y="185" key="StringManipulation.SortTokensDialog" timestamp="1596544505463">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="590" y="185" key="StringManipulation.SortTokensDialog/0.0.1920.1160/1920.114.1920.1040@0.0.1920.1160" timestamp="1596544505463" />
-    <state x="640" y="185" key="StringManipulation.SortTypeDialog" timestamp="1596544522889">
+    <state x="640" y="185" key="StringManipulation.SortTypeDialog" timestamp="1596622640846">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="640" y="185" key="StringManipulation.SortTypeDialog/0.0.1920.1160/1920.114.1920.1040@0.0.1920.1160" timestamp="1596544522889" />
-    <state x="552" y="313" key="Vcs.Push.Dialog.v2" timestamp="1596557025418">
+    <state x="640" y="185" key="StringManipulation.SortTypeDialog/0.0.1920.1160/1920.114.1920.1040@0.0.1920.1160" timestamp="1596622640846" />
+    <state x="552" y="313" key="Vcs.Push.Dialog.v2" timestamp="1596620935985">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="552" y="313" key="Vcs.Push.Dialog.v2/0.0.1920.1160/1920.114.1920.1040@0.0.1920.1160" timestamp="1596557025418" />
+    <state x="552" y="313" key="Vcs.Push.Dialog.v2/0.0.1920.1160/1920.114.1920.1040@0.0.1920.1160" timestamp="1596620935985" />
     <state x="552" y="313" key="Vcs.Push.Dialog.v2/1920.116.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1595862921903" />
     <state x="304" y="98" width="1558" height="1147" key="dock-window-1" timestamp="1595683648764">
       <screen x="0" y="0" width="1920" height="1160" />

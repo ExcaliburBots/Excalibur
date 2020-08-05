@@ -1,11 +1,13 @@
-use crate::managers::{Database, DefaultPrefix};
+extern crate log;
+
 use serenity::framework::standard::{macros::command, Args, CommandResult};
 use serenity::model::prelude::*;
 use serenity::prelude::*;
 use serenity::utils::{Colour, MessageBuilder};
-extern crate log;
 
+use crate::managers::{Database, DefaultPrefix};
 use crate::models::guild_config::GuildConfig;
+use crate::utils::{get_default_prefix, save_prefix};
 
 #[command]
 #[required_permissions("ADMINISTRATOR")]
@@ -50,9 +52,13 @@ async fn prefix(ctx: &Context, msg: &Message, mut args: Args) -> CommandResult {
     let pool = data.get::<Database>().unwrap();
 
     let guild = msg.guild(&ctx.cache).await.unwrap();
-    let mut guild_config = GuildConfig::get(i64::from(guild.id), "!", pool)
-        .await
-        .unwrap();
+    let guild_config = GuildConfig::get(
+        i64::from(guild.id),
+        get_default_prefix(ctx).await.as_str(),
+        pool,
+    )
+    .await
+    .unwrap();
 
     if args.len() > 0 {
         let new_prefix = args.single::<String>().unwrap();
@@ -62,10 +68,8 @@ async fn prefix(ctx: &Context, msg: &Message, mut args: Args) -> CommandResult {
             .push("`.")
             .build();
 
-        guild_config
-            .set_prefix(new_prefix.as_str(), pool)
-            .await
-            .unwrap();
+        save_prefix(new_prefix, guild.id, ctx).await;
+
         if let Err(why) = msg.channel_id.say(&ctx.http, response).await {
             println!("Error sending message: {:?}", why);
         }

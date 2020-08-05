@@ -1,6 +1,12 @@
+#[macro_use]
+extern crate log;
+extern crate pretty_env_logger;
+extern crate serenity;
+
+use std::collections::HashMap;
+use std::time::Duration;
 use std::{collections::HashSet, fs, sync::Arc};
 
-extern crate serenity;
 use serenity::prelude::*;
 use serenity::{
     async_trait,
@@ -11,20 +17,16 @@ use serenity::{
     },
     model::{channel::Message, event::ResumedEvent, gateway::Ready, id::UserId},
 };
-
-extern crate pretty_env_logger;
-#[macro_use]
-extern crate log;
-
-mod commands;
-use commands::{checks::*, config::*, general::*, moderation::*, owner::*, voice::*};
-
-mod managers;
-use crate::models::guild_config::GuildConfig;
-use managers::*;
-use std::time::Duration;
 use tokio::time::delay_for;
 
+use commands::{checks::*, config::*, general::*, moderation::*, owner::*, voice::*};
+use managers::*;
+
+use crate::models::guild_config::GuildConfig;
+use crate::utils::save_prefix;
+
+mod commands;
+mod managers;
 mod models;
 mod utils;
 
@@ -107,15 +109,26 @@ async fn my_help(
 #[hook]
 async fn dynamic_prefix(ctx: &Context, msg: &Message) -> Option<String> {
     let data = ctx.data.read().await;
-    let pool = data.get::<Database>().unwrap();
     let default_prefix = data.get::<DefaultPrefix>().unwrap();
+    let guild_prefix = data.get::<GuildPrefix>().unwrap();
+
     let guild_id = msg.guild(&ctx.cache).await.unwrap().id;
 
-    let prefix = GuildConfig::get_prefix(guild_id, default_prefix.to_string(), pool)
-        .await
-        .unwrap();
+    return if let Some(prefix) = guild_prefix.get(&guild_id.0) {
+        info!("Shared data prefix: {}", prefix);
+        Some(String::from(prefix))
+    } else {
+        let pool = data.get::<Database>().unwrap();
 
-    Some(prefix)
+        let prefix = GuildConfig::get_prefix(guild_id, default_prefix.to_string(), pool)
+            .await
+            .unwrap();
+
+        save_prefix(String::from(&prefix), guild_id, ctx).await;
+
+        info!("DB prefix: {}", prefix);
+        Some(prefix)
+    };
 }
 
 // Main
@@ -131,24 +144,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let owners = bot_config.get_owners();
     let bot_id = bot_config.bot_id();
     let token = bot_config.bot_token();
-
-    // let token = env::var("DISCORD_TOKEN").expect("Expected a token in the environment");
-    // let http = Http::new_with_token(&token);
-
-    // let (owners, bot_id) = match http.get_current_application_info().await {
-    //     Ok(info) => {
-    //         let mut owners = HashSet::new();
-    //
-    //         for team in info.team {
-    //             for team_member in team.members {
-    //                 owners.insert(team_member.user.id);
-    //             }
-    //         }
-    //
-    //         (owners, info.id)
-    //     }
-    //     Err(why) => panic!("Could not access application info: {:?}", why),
-    // };
 
     let pool = utils::obtain_pool(&*bot_config.database.get_database_url()).await?;
 
@@ -177,6 +172,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         let mut data = client.data.write().await;
         data.insert::<Database>(pool.clone());
         data.insert::<DefaultPrefix>(bot_config.bot_default_prefix());
+        data.insert::<GuildPrefix>(HashMap::default());
         data.insert::<BotConfig>(bot_config);
         data.insert::<ShardManagerContainer>(Arc::clone(&client.shard_manager));
         data.insert::<VoiceManager>(Arc::clone(&client.voice_manager));
