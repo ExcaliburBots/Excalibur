@@ -115,7 +115,6 @@ async fn dynamic_prefix(ctx: &Context, msg: &Message) -> Option<String> {
     let guild_id = msg.guild(&ctx.cache).await.unwrap().id;
 
     return if let Some(prefix) = guild_prefix.get(&guild_id.0) {
-        info!("Shared data prefix: {}", prefix);
         Some(String::from(prefix))
     } else {
         let pool = data.get::<Database>().unwrap();
@@ -126,7 +125,6 @@ async fn dynamic_prefix(ctx: &Context, msg: &Message) -> Option<String> {
 
         save_prefix(String::from(&prefix), guild_id, ctx).await;
 
-        info!("DB prefix: {}", prefix);
         Some(prefix)
     };
 }

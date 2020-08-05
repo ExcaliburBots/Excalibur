@@ -27,13 +27,7 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a7d1561-4560-41e6-8d47-dfe4a8a0a548" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/config.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/config.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/managers/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/mod.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/mod.rs" afterDir="false" />
-    </list>
+    <list default="true" id="0a7d1561-4560-41e6-8d47-dfe4a8a0a548" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -149,7 +143,7 @@
       <workItem from="1596544022026" duration="9657000" />
       <workItem from="1596557485424" duration="853000" />
       <workItem from="1596559351147" duration="776000" />
-      <workItem from="1596621220633" duration="2183000" />
+      <workItem from="1596621220633" duration="2740000" />
     </task>
     <task id="LOCAL-00001" summary="intelij">
       <created>1595855195619</created>
@@ -172,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596557015181</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="reduced database calls for fetching the prefix for a guild">
+      <created>1596623959509</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1596623959509</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,10 +205,16 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="intelij" />
     <MESSAGE value="Added feature:&#10;- Custom prefixes&#10;- New check: you can now say that a command can only be used if the is a config" />
     <MESSAGE value="moved configuration of the bot to a config.toml file" />
-    <option name="LAST_COMMIT_MESSAGE" value="moved configuration of the bot to a config.toml file" />
+    <MESSAGE value="reduced database calls for fetching the prefix for a guild" />
+    <option name="LAST_COMMIT_MESSAGE" value="reduced database calls for fetching the prefix for a guild" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="221" key="#Plugins" timestamp="1595854043508">
@@ -234,6 +241,10 @@
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="735" y="426" key="#com.intellij.tools.ToolEditorDialog/1920.116.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1595853930174" />
+    <state x="92" y="92" width="1736" height="976" key="DiffContextDialog" timestamp="1596623993469">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="92" y="92" width="1736" height="976" key="DiffContextDialog/0.0.1920.1160/1920.114.1920.1040@0.0.1920.1160" timestamp="1596623993469" />
     <state x="740" y="335" key="FileChooserDialogImpl" timestamp="1596530801922">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
